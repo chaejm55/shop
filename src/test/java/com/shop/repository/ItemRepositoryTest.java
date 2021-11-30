@@ -32,7 +32,7 @@ class ItemRepositoryTest {
     @PersistenceContext
     EntityManager em; // 영속성 컨텐츠 사용용
 
-   @Autowired
+    @Autowired
     ItemRepository itemRepository;
 
     @AfterEach
