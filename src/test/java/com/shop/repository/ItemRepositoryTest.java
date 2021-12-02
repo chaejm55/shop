@@ -55,9 +55,7 @@ class ItemRepositoryTest {
                 .itemDetail(itemDetail)
                 .itemSellStatus(itemSellStatus)
                 .stockNumber(stockNumber)
-                .regTime(LocalDateTime.now())
-                .updateTime(LocalDateTime.now()).
-                build());
+                .build());
 
         // System.out.println(savedItem.toString());
 
@@ -87,9 +85,7 @@ class ItemRepositoryTest {
                     .itemDetail(itemDetail + i)
                     .itemSellStatus(itemSellStatus)
                     .stockNumber(stockNumber)
-                    .regTime(LocalDateTime.now())
-                    .updateTime(LocalDateTime.now()).
-                    build());
+                    .build());
             // System.out.println(savedItem.toString());
         }
     }
@@ -108,9 +104,7 @@ class ItemRepositoryTest {
                     .itemDetail(itemDetail + i)
                     .itemSellStatus(itemSellStatus)
                     .stockNumber(stockNumber)
-                    .regTime(LocalDateTime.now())
-                    .updateTime(LocalDateTime.now()).
-                    build());
+                    .build());
         }
         ItemSellStatus itemSellStatus2 = ItemSellStatus.SOLD_OUT;
         int stockNumber2 = 0;
@@ -121,9 +115,7 @@ class ItemRepositoryTest {
                     .itemDetail(itemDetail + i)
                     .itemSellStatus(itemSellStatus)
                     .stockNumber(stockNumber2)
-                    .regTime(LocalDateTime.now())
-                    .updateTime(LocalDateTime.now()).
-                    build());
+                    .build());
         }
     }
 

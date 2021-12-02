@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @NoArgsConstructor
-public class Member {
+public class Member extends BaseEntity{
 
     @Id
     @Column(name = "member_id")
@@ -38,6 +38,7 @@ public class Member {
     public Member(Long id, String name, String email, String password, String address, Role role) {
         this.id = id;
         this.name = name;
+        this.email = email;
         this.password = password;
         this.address = address;
         this.role = role;
@@ -49,7 +50,7 @@ public class Member {
                 .email(memberFormDto.getEmail())
                 .address(memberFormDto.getAddress())
                 .password(passwordEncoder.encode(memberFormDto.getPassword()))
-                .role(Role.USER)
+                .role(Role.ADMIN)
                 .build();
         return member;
     }

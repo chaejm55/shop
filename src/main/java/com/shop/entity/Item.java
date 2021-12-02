@@ -2,7 +2,6 @@ package com.shop.entity;
 
 import com.shop.constant.ItemSellStatus;
 import lombok.*;
-import org.apache.tomcat.jni.Local;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -13,7 +12,7 @@ import java.time.LocalDateTime;
 @ToString
 @Entity
 @Table(name = "item")
-public class Item {
+public class Item extends BaseEntity{
 
     @Id
     @Column(name = "item_id")
@@ -35,21 +34,16 @@ public class Item {
 
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus;
-    private LocalDateTime regTime; // 등록 시간
-    private LocalDateTime updateTime; // 수정시간
     
     // setter 대신 빌더 패턴으로 생성자 구현
     @Builder
     public Item(Long id, String itemName, int price, int stockNumber,
-                String itemDetail, ItemSellStatus itemSellStatus,
-                LocalDateTime regTime, LocalDateTime updateTime) {
+                String itemDetail, ItemSellStatus itemSellStatus){
         this.id = id;
         this.itemName = itemName;
         this.price = price;
         this.stockNumber = stockNumber;
         this.itemDetail = itemDetail;
         this.itemSellStatus = itemSellStatus;
-        this.regTime = regTime;
-        this.updateTime = updateTime;
     }
 }
