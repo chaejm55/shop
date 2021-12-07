@@ -4,6 +4,7 @@ import com.shop.entity.ItemImg;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.modelmapper.ModelMapper;
 
 @Getter
 @NoArgsConstructor
@@ -35,5 +36,11 @@ public class ItemImgDto {
                 .imgUrl(imgUrl)
                 .repimgYn(repImgYn)
                 .build();
+    }
+
+    private static ModelMapper modelMapper = new ModelMapper();
+
+    public static ItemImgDto of(ItemImg itemImg) {
+        return modelMapper.map(itemImg,ItemImgDto.class);
     }
 }
