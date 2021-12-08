@@ -33,13 +33,13 @@ public class ItemService {
             if (i == 0) {
                 itemImg = ItemImg.builder()
                         .item(item)
-                        .repimgYn("Y")
+                        .repImgYn("Y")
                         .build();
             }
             else {
                 itemImg = ItemImg.builder()
                         .item(item)
-                        .repimgYn("N")
+                        .repImgYn("N")
                         .build();
             }
             itemImgService.saveItemImg(itemImg, itemImgFileList.get(i));
@@ -52,15 +52,14 @@ public class ItemService {
         List<ItemImg> itemImgList = itemImgRepository.findByItemIdOrderByIdAsc(itemId);
         List<ItemImgDto> itemImgDtoList = new ArrayList<>();
         for (ItemImg itemImg: itemImgList) {
-            ItemImgDto itemImgDto = ItemImgDto.of(itemImg);
+            ItemImgDto itemImgDto = ItemImgDto.fromEntity(itemImg);
             itemImgDtoList.add(itemImgDto);
         }
 
         Item item = itemRepository.findById(itemId)
                 .orElseThrow(EntityNotFoundException::new);
-        ItemFormDto itemFormDto = ItemFormDto.of(item);
+        ItemFormDto itemFormDto = ItemFormDto.fromEntity(item);
         itemFormDto.setItemImgDtoList(itemImgDtoList);
-        System.out.println(itemImgDtoList.get(0).getOriImgName());
         return itemFormDto;
     }
 

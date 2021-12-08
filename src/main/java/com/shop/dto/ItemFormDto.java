@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.modelmapper.ModelMapper;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -53,18 +52,23 @@ public class ItemFormDto {
 
     public Item toEntity() {
         return Item.builder()
-                .id(this.id)
-                .itemName(this.itemName)
-                .price(this.price)
-                .itemDetail(this.itemDetail)
-                .stockNumber(this.stockNumber)
-                .itemSellStatus(this.itemSellStatus)
+                .id(id)
+                .itemName(itemName)
+                .price(price)
+                .itemDetail(itemDetail)
+                .stockNumber(stockNumber)
+                .itemSellStatus(itemSellStatus)
                 .build();
     }
 
-    private static ModelMapper modelMapper = new ModelMapper();
-
-    public static ItemFormDto of(Item item){
-        return modelMapper.map(item,ItemFormDto.class);
+    public static ItemFormDto fromEntity(Item item) {
+        return ItemFormDto.builder()
+                .id(item.getId())
+                .itemName(item.getItemName())
+                .price(item.getPrice())
+                .itemDetail(item.getItemDetail())
+                .stockNumber(item.getStockNumber())
+                .itemSellStatus(item.getItemSellStatus())
+                .build();
     }
 }

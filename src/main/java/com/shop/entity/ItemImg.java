@@ -22,19 +22,19 @@ public class ItemImg extends BaseEntity{
 
     private String imgUrl;
 
-    private String repimgYn;
+    private String repImgYn;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "item_id")
     private Item item;
 
     @Builder
-    public ItemImg(Long id, String imgName, String oriImgName, String imgUrl, String repimgYn, Item item) {
+    public ItemImg(Long id, String imgName, String oriImgName, String imgUrl, String repImgYn, Item item) {
         this.id = id;
         this.imgName = imgName;
         this.oriImgName = oriImgName;
         this.imgUrl = imgUrl;
-        this.repimgYn = repimgYn;
+        this.repImgYn = repImgYn;
         this.item = item;
     }
 
