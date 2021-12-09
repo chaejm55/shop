@@ -35,8 +35,7 @@ public class Order extends BaseEntity{
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @Builder
-    public Order(Long id, Member member, LocalDateTime orderDate, OrderStatus orderStatus) {
-        this.id = id;
+    public Order( Member member, LocalDateTime orderDate, OrderStatus orderStatus) {
         this.member = member;
         this.orderDate = orderDate;
         this.orderStatus = orderStatus;

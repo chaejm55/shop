@@ -29,8 +29,7 @@ public class ItemImg extends BaseEntity{
     private Item item;
 
     @Builder
-    public ItemImg(Long id, String imgName, String oriImgName, String imgUrl, String repImgYn, Item item) {
-        this.id = id;
+    public ItemImg(String imgName, String oriImgName, String imgUrl, String repImgYn, Item item) {
         this.imgName = imgName;
         this.oriImgName = oriImgName;
         this.imgUrl = imgUrl;

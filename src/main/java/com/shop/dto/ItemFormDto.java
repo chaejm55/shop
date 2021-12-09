@@ -52,7 +52,6 @@ public class ItemFormDto {
 
     public Item toEntity() {
         return Item.builder()
-                .id(id)
                 .itemName(itemName)
                 .price(price)
                 .itemDetail(itemDetail)

@@ -24,8 +24,7 @@ public class Cart extends BaseEntity{
     private Member member;
 
     @Builder
-    public Cart (Long id, Member member) {
-        this.id = id;
+    public Cart (Member member) {
         this.member = member;
     }
 }

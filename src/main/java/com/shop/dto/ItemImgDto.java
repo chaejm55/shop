@@ -29,7 +29,6 @@ public class ItemImgDto {
 
     public ItemImg toEntity() {
         return ItemImg.builder()
-                .id(id)
                 .imgName(imgName)
                 .oriImgName(oriImgName)
                 .imgUrl(imgUrl)

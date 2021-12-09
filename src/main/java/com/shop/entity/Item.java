@@ -38,9 +38,8 @@ public class Item extends BaseEntity {
     
     // setter 대신 빌더 패턴으로 생성자 구현
     @Builder
-    public Item(Long id, String itemName, int price, int stockNumber,
+    public Item(String itemName, int price, int stockNumber,
                 String itemDetail, ItemSellStatus itemSellStatus){
-        this.id = id;
         this.itemName = itemName;
         this.price = price;
         this.stockNumber = stockNumber;
