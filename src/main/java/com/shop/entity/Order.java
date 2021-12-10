@@ -35,7 +35,7 @@ public class Order extends BaseEntity{
     private List<OrderItem> orderItems = new ArrayList<>();
 
     @Builder
-    public Order( Member member, LocalDateTime orderDate, OrderStatus orderStatus) {
+    public Order(Member member, LocalDateTime orderDate, OrderStatus orderStatus) {
         this.member = member;
         this.orderDate = orderDate;
         this.orderStatus = orderStatus;
@@ -43,5 +43,30 @@ public class Order extends BaseEntity{
 
     public void setMember(Member member) {
         this.member = member;
+    }
+
+    public void addOrderItem(OrderItem orderItem) {
+        orderItems.add(orderItem);
+        orderItem.setOrder(this);
+    }
+
+    public static Order createOrder(Member member, List<OrderItem> orderItemList) {
+        Order order = Order.builder()
+                .member(member)
+                .orderStatus(OrderStatus.ORDER)
+                .orderDate(LocalDateTime.now())
+                .build();
+        for (OrderItem orderItem: orderItemList) {
+            order.addOrderItem(orderItem);
+        }
+        return order;
+    }
+
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem orderItem: orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+        return totalPrice;
     }
 }
